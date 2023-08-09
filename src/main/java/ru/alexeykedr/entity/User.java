@@ -4,49 +4,55 @@ import ru.alexeykedr.GameLogic;
 
 import java.util.Scanner;
 
-public class User implements GameLogic {
+public class User extends GameLogic {
+    private String typeField;
+    private Integer placeOneField;
 
 
+    public Integer getPlaceOneField() {
+        return placeOneField;
+    }
+
+    public String getTypeField() {
+        return typeField;
+    }
     @Override
-    public void move(char[] field, int place) {
+    public void move(char[] field) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите поле: ");
-        String input = scanner.nextLine();
-        while (true) {
-            if (input.length() != 1) {
-                System.out.println("Введите поле с 1 символом");
-            } else {
-                if (input.charAt(0) == 'X' || input.charAt(0) == 'O') {
-                    field[place] = input.charAt(0);
-                    break;
-                } else {
-                    System.out.println("Введите поле с 1 символом");
-                }
-            }
+
+        System.out.print("Введите тип ваших полей: Х или 0?  ");
+        while (!isFieldValid(typeField)) {
+            typeField = scanner.nextLine();
+        }
+
+        System.out.print("Введите цифру поля, куда хотите походить: \n123 \n456 \n789  ");
+        while (!isPlaceFieldValid(placeOneField))
+            placeOneField = scanner.nextInt();
+
+        field[placeOneField] = typeField.charAt(0);
+    }
+
+    private boolean isFieldValid(String typeField) {
+        if (typeField.equals("X") || typeField.equals("O")) {
+            return true;
+        } else {
+            System.out.println("Введите тип ваших полей (икс или ноль): Х или 0");
+            return false;
         }
     }
 
-
-    @Override
-    public boolean isWin(char[] field) {
-        if (field[0] == field[1] && field[1] == field[2])
+    private boolean isPlaceFieldValid(int placeOneField) {
+        if (placeOneField < 1 || placeOneField > 9) {
+            System.out.println("Введите значение из диапазона 1<=x<=9");
+            return false;
+        } else {
             return true;
-        if (field[3] == field[4] && field[4] == field[5])
-            return true;
-        if (field[6] == field[7] && field[7] == field[8])
-            return true;
-        if (field[0] == field[3] && field[3] == field[6])
-            return true;
-        if (field[1] == field[4] && field[4] == field[7])
-            return true;
-        if (field[2] == field[5] && field[5] == field[8])
-            return true;
-        if (field[0] == field[4] && field[4] == field[8])
-            return true;
-        if (field[2] == field[4] && field[4] == field[6])
-            return true;
-        return false;
-
-
+        }
     }
 }
+
+
+
+
+
+
