@@ -21,7 +21,7 @@ public class MoveGame {
                 Field.printMapField(mapFieldNew);
                 break;
             }
-            pc.move(mapFieldNew, user.getTypeField());
+            pc.move(mapFieldNew);
             if (GameLogic.isWin(mapFieldNew)) {
                 System.out.println("Выиграл PC!");
                 Field.printMapField(mapFieldNew);

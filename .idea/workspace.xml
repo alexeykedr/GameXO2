@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d574044-5c5a-49da-92f8-390b9b8747f2" name="Changes" comment="+ MoveGame">
+    <list default="true" id="1d574044-5c5a-49da-92f8-390b9b8747f2" name="Changes" comment="+ все работает с типом X, осталось допилитьь с типом O">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/GameLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/MoveGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/MoveGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/entity/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/entity/Field.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/entity/PcUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/entity/PcUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/entity/User.java" afterDir="false" />
     </list>
@@ -92,7 +91,7 @@
       <workItem from="1691567406022" duration="8557000" />
       <workItem from="1691587322516" duration="867000" />
       <workItem from="1691594913002" duration="9871000" />
-      <workItem from="1691638902730" duration="27751000" />
+      <workItem from="1691638902730" duration="34899000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -110,7 +109,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691608682331</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="+ все работает с типом X, осталось допилитьь с типом O">
+      <option name="closed" value="true" />
+      <created>1691671595412</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1691671595412</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,7 +137,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init commit" />
     <MESSAGE value="+ MoveGame" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ MoveGame" />
+    <MESSAGE value="+ все работает с типом X, осталось допилитьь с типом O" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ все работает с типом X, осталось допилитьь с типом O" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -139,19 +147,19 @@
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="20" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/alexeykedr/MoveGame.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/ru/alexeykedr/entity/PcUser.java</url>
-          <line>11</line>
+          <line>20</line>
           <properties class="ru.alexeykedr.entity.PcUser" method="move">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/alexeykedr/entity/User.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="28" />
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

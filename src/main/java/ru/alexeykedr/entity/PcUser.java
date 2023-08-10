@@ -8,21 +8,26 @@ public class PcUser extends GameLogic {
 
     Random random = new Random();
 
+    String typeFieldForPc = "default";
 
-    public void move(char[] field, String typeField) {
+    public String getTypeFieldForPc() {
+        return typeFieldForPc;
+    }
+
+    public void setTypeFieldForPc(String typeField) {
+        this.typeFieldForPc = typeField;
+    }
+
+    public void move(char[] field) {
 
         while (true) {
-//            user.
-            int randomNumber = random.nextInt(9)+1;
+            int randomNumber = random.nextInt(9) + 1;
 
-            if (field[randomNumber-1] == "X". charAt(0) || field[randomNumber-1] == "O".charAt(0)) {
-                continue;
-            } else {
-                String typeFieldForPC = new User().getTypeField().equals("X")? "O" : "X";
+            setTypeFieldForPc(getTypeFieldForPc().equals("X") ? "0" : "X");
 
-                field[randomNumber] = typeFieldForPC.charAt(0);
-                break;
-            }
+            field[randomNumber - 1] = getTypeFieldForPc().charAt(0);
+            break;
         }
     }
 }
+

@@ -8,7 +8,7 @@ public class User extends GameLogic {
     static String typeField = "default";
 
     private Integer placeOneField;
-    Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner( System.in);
 
     public Integer getPlaceOneField() {
         return placeOneField;
@@ -25,7 +25,7 @@ public class User extends GameLogic {
 
     public void move(char[] field) {
 
-        if(typeField == null) {
+        if (typeField == null) {
             System.out.println("Введите тип ваших полей: Х или 0?  ");
             typeField = scanner.nextLine();
         }
@@ -35,6 +35,8 @@ public class User extends GameLogic {
             typeField = scanner.nextLine();
 
         }
+
+        new PcUser().setTypeFieldForPc(typeField);
         Field.printMapField(field);
         System.out.println("Введите цифру поля, куда хотите походить: ");
 
@@ -45,7 +47,7 @@ public class User extends GameLogic {
         }
 
         field[placeOneField - 1] = typeField.charAt(0);
-         String typeFieldPCFromUser = typeField;
+
 
     }
 
@@ -69,12 +71,7 @@ public class User extends GameLogic {
         }
     }
 
-    @Override
-    public void move(char[] field, String typeField) {
-
-    }
 }
-
 
 
 
