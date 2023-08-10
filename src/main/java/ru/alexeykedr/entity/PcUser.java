@@ -7,18 +7,19 @@ import java.util.Random;
 public class PcUser extends GameLogic {
 
     Random random = new Random();
-    String typeFieldForPC = new User().getTypeField()
-            .equals("X")? "X" : "O";
 
-    @Override
-    public void move(char[] field) {
+
+    public void move(char[] field, String typeField) {
+
         while (true) {
-            int randomNumber = random.nextInt(9);
-            String inpuPlacePC = Integer.toString(randomNumber + 1);
+//            user.
+            int randomNumber = random.nextInt(9)+1;
 
-            if (field[randomNumber] == 'X' || field[randomNumber] == 'O') {
+            if (field[randomNumber-1] == "X". charAt(0) || field[randomNumber-1] == "O".charAt(0)) {
                 continue;
             } else {
+                String typeFieldForPC = new User().getTypeField().equals("X")? "O" : "X";
+
                 field[randomNumber] = typeFieldForPC.charAt(0);
                 break;
             }

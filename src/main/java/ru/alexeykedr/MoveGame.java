@@ -8,6 +8,8 @@ public class MoveGame {
     public static void startGame() {
     Field mapfield = new Field();
     char[] mapFieldNew = mapfield.create(9);
+
+
     User user = new User();
     PcUser pc = new PcUser();
 
@@ -15,12 +17,14 @@ public class MoveGame {
         while (true) {
             user.move(mapFieldNew);
             if (GameLogic.isWin(mapFieldNew)) {
-                System.out.println(" Пользователь  выиграл!");
+                System.out.println("Пользователь  выиграл!");
+                Field.printMapField(mapFieldNew);
                 break;
             }
-            pc.move(mapFieldNew);
+            pc.move(mapFieldNew, user.getTypeField());
             if (GameLogic.isWin(mapFieldNew)) {
                 System.out.println("Выиграл PC!");
+                Field.printMapField(mapFieldNew);
                 break;
             }
         }

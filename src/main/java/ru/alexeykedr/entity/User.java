@@ -5,9 +5,10 @@ import ru.alexeykedr.GameLogic;
 import java.util.Scanner;
 
 public class User extends GameLogic {
-    private String typeField;
-    private Integer placeOneField;
+    static String typeField = "default";
 
+    private Integer placeOneField;
+    Scanner scanner = new Scanner(System.in);
 
     public Integer getPlaceOneField() {
         return placeOneField;
@@ -16,38 +17,61 @@ public class User extends GameLogic {
     public String getTypeField() {
         return typeField;
     }
-    @Override
-    public void move(char[] field) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Введите тип ваших полей: Х или 0?  ");
-        while (!isFieldValid(typeField)) {
+    public static void setTypeField(String typeField) {
+        User.typeField = typeField;
+    }
+
+
+    public void move(char[] field) {
+
+        if(typeField == null) {
+            System.out.println("Введите тип ваших полей: Х или 0?  ");
             typeField = scanner.nextLine();
         }
 
-        System.out.print("Введите цифру поля, куда хотите походить: \n123 \n456 \n789  ");
-        while (!isPlaceFieldValid(placeOneField))
+        while (!isTypeFieldValid(typeField)) {
+            System.out.println("Введите тип ваших полей X (икс большой) или О (о большая))?  ");
+            typeField = scanner.nextLine();
+
+        }
+        Field.printMapField(field);
+        System.out.println("Введите цифру поля, куда хотите походить: ");
+
+        placeOneField = scanner.nextInt();
+        while (!isPlaceFieldValid(placeOneField, field)) {
             placeOneField = scanner.nextInt();
 
-        field[placeOneField] = typeField.charAt(0);
+        }
+
+        field[placeOneField - 1] = typeField.charAt(0);
+         String typeFieldPCFromUser = typeField;
+
     }
 
-    private boolean isFieldValid(String typeField) {
+
+    private boolean isTypeFieldValid(String typeField) {
         if (typeField.equals("X") || typeField.equals("O")) {
             return true;
         } else {
-            System.out.println("Введите тип ваших полей (икс или ноль): Х или 0");
+
             return false;
         }
     }
 
-    private boolean isPlaceFieldValid(int placeOneField) {
-        if (placeOneField < 1 || placeOneField > 9) {
-            System.out.println("Введите значение из диапазона 1<=x<=9");
+    private boolean isPlaceFieldValid(int placeOneField, char[] field) {
+        if ((placeOneField < 1 || placeOneField > 9) ||
+                (field[placeOneField - 1] == '0' || field[placeOneField - 1] == 'X')) {
+
             return false;
         } else {
             return true;
         }
+    }
+
+    @Override
+    public void move(char[] field, String typeField) {
+
     }
 }
 
