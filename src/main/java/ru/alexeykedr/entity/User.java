@@ -35,8 +35,9 @@ public class User extends GameLogic {
             typeField = scanner.nextLine();
 
         }
-
         new PcUser().setTypeFieldForPc(typeField);
+
+
         Field.printMapField(field);
         System.out.println("Введите цифру поля, куда хотите походить: ");
 

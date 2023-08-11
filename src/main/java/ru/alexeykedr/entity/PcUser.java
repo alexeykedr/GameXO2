@@ -19,15 +19,13 @@ public class PcUser extends GameLogic {
     }
 
     public void move(char[] field) {
+        this.typeFieldForPc = getTypeFieldForPc().equals("X")? "0" : "X";
 
-        while (true) {
-            int randomNumber = random.nextInt(9) + 1;
+        // закрыть условием от изменения
 
-            setTypeFieldForPc(getTypeFieldForPc().equals("X") ? "0" : "X");
-
-            field[randomNumber - 1] = getTypeFieldForPc().charAt(0);
-            break;
-        }
+        int randomNumber = random.nextInt(9) + 1;
+        field[randomNumber - 1] = getTypeFieldForPc().charAt(0);
     }
 }
+
 
