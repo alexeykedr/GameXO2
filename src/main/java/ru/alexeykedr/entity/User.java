@@ -2,76 +2,39 @@ package ru.alexeykedr.entity;
 
 import ru.alexeykedr.GameLogic;
 
+
 import java.util.Scanner;
 
-public class User extends GameLogic {
-    static String typeField = "default";
+public class User extends Player {
+    GameLogic gameLogic;
+    Scanner scanner = new Scanner(System.in);
+
+    public char moveSymbolUser;
 
     private Integer placeOneField;
-    Scanner scanner = new Scanner( System.in);
 
-    public Integer getPlaceOneField() {
-        return placeOneField;
-    }
+    public Integer move(char[] field) {
 
-    public String getTypeField() {
-        return typeField;
-    }
+        while (!gameLogic.isTypeFieldValid((moveSymbolUser))) {
 
-    public static void setTypeField(String typeField) {
-        User.typeField = typeField;
-    }
-
-
-    public void move(char[] field) {
-
-        if (typeField == null) {
-            System.out.println("Введите тип ваших полей: Х или 0?  ");
-            typeField = scanner.nextLine();
+            System.out.println("Введите тип ваших полей: Х (икс большой) или 0 (буква о большая)?  ");
+            moveSymbolUser = scanner.nextLine().charAt(0);
         }
-
-        while (!isTypeFieldValid(typeField)) {
-            System.out.println("Введите тип ваших полей X (икс большой) или О (о большая))?  ");
-            typeField = scanner.nextLine();
-
-        }
-
-        new PcUser().setTypeFieldForPc(typeField);
-        Field.printMapField(field);
         System.out.println("Введите цифру поля, куда хотите походить: ");
 
         placeOneField = scanner.nextInt();
-        while (!isPlaceFieldValid(placeOneField, field)) {
+        while (!gameLogic.isPlaceFieldValid(placeOneField, field)) {
             placeOneField = scanner.nextInt();
+            System.out.println("Введите цифру поля, куда хотите походить от 1 до 9 включительно: ");
 
         }
 
-        field[placeOneField - 1] = typeField.charAt(0);
-
+        return placeOneField;
 
     }
-
-
-    private boolean isTypeFieldValid(String typeField) {
-        if (typeField.equals("X") || typeField.equals("O")) {
-            return true;
-        } else {
-
-            return false;
-        }
-    }
-
-    private boolean isPlaceFieldValid(int placeOneField, char[] field) {
-        if ((placeOneField < 1 || placeOneField > 9) ||
-                (field[placeOneField - 1] == '0' || field[placeOneField - 1] == 'X')) {
-
-            return false;
-        } else {
-            return true;
-        }
-    }
-
 }
+
+
 
 
 
