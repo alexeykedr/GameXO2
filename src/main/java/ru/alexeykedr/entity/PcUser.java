@@ -4,15 +4,14 @@ import java.util.Random;
 
 public class PcUser extends Player {
 
-    Random random = new Random();
+    private final Random random = new Random();
 
-    public Integer generateMove() {
-        int randomNumber = random.nextInt(9) + 1;
-        return randomNumber;
+    private Integer generateMovePc() {
+        return  random.nextInt(9) + 1;
     }
 
     public Integer move(char[] field) {
-        return generateMove();
+        return generateMovePc();
     }
 }
 

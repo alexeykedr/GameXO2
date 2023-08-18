@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d574044-5c5a-49da-92f8-390b9b8747f2" name="Changes" comment="добавил get/set TypeFieldForPc">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/GameLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/GameRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/GameRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/MoveGame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/MoveSymbol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/MoveSymbol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/entity/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/entity/Field.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/entity/PcUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/entity/PcUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alexeykedr/entity/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,24 +51,24 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "full.screen.before.presentation.mode": "false",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="GameRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.alexeykedr.GameRunner" />
@@ -114,6 +113,10 @@
       <workItem from="1692296979660" duration="1194000" />
       <workItem from="1692330383677" duration="3332000" />
       <workItem from="1692333731841" duration="10001000" />
+      <workItem from="1692345776836" duration="6678000" />
+      <workItem from="1692381736398" duration="89000" />
+      <workItem from="1692532835353" duration="2431000" />
+      <workItem from="1692552977664" duration="5548000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />

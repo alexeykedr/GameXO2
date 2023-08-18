@@ -5,37 +5,50 @@ import ru.alexeykedr.entity.PcUser;
 import ru.alexeykedr.entity.Player;
 import ru.alexeykedr.entity.User;
 
+import java.util.Scanner;
+
 public class GameLogic {
     private final Field field = new Field(9);
-    private final User user = new User();
-    private final PcUser pc = new PcUser();
-    private final char moveSymbolForPC = ((MoveSymbol.X.toString().charAt(0) == user.moveSymbolUser) ?
-            MoveSymbol.O : MoveSymbol.X).toString().charAt(0);
+    private final Player user = new User();
+    private final Player pc = new PcUser();
+    private final Scanner scanner = new Scanner(System.in);
+
+
+    private final char moveSymbolForPC = ((MoveSymbol.X.toString().charAt(0) == user.getSymbol()) ?
+            MoveSymbol.O : MoveSymbol.X)
+            .toString().charAt(0);
 
     public void startGame() {
+        while (!isTypeFieldValid((user.getSymbol()))) {
+            System.out.println("Введите тип ваших полей: Х (икс большой) или 0 (буква о большая)?  ");
+            user.setSymbol(scanner.nextLine().charAt(0));
+        }
         while (true) {
+//             ----------------- USER ------------------------------------
+            int numberPlaceForUser = user.move(field.getMapFieldNew());
 
-            // USER ------------------------------------
-            int placeForUser = user.move(field.mapFieldNew);
-            field.mapFieldNew[placeForUser - 1] = user.moveSymbolUser;
-            field.printMapField(field.mapFieldNew);
+            while (isPlaceFieldValid(numberPlaceForUser, field.getMapFieldNew())) {
+                numberPlaceForUser = scanner.nextInt();
+                System.out.println("Введите цифру поля, куда хотите походить от 1 до 9 включительно: ");
+            }
+            field.getMapFieldNew()[numberPlaceForUser - 1] = user.getSymbol();
+            field.printMapField(field.getMapFieldNew());
 
-            if (Player.isWin(field.mapFieldNew)) {
+            if (isWin(field.getMapFieldNew())) {
                 System.out.println("Пользователь  выиграл!");
                 break;
             }
 
-            // PC -----------------------------------------
-            int placeForPC = pc.generateMove();
-            for (int count = 0;
-                 !isPlaceFieldValid(placeForPC, field.mapFieldNew) && count < 3;
-                 count++) {
-                placeForPC = pc.generateMove();
-            }
-            field.mapFieldNew[placeForPC - 1] = moveSymbolForPC;
-            field.printMapField(field.mapFieldNew);
+            // -------------------------- PC -----------------------------------------
+            int numberPlaceForPC = pc.move(field.getMapFieldNew());
 
-            if (Player.isWin(field.mapFieldNew)) {
+            while (!isPlaceFieldValid(numberPlaceForPC, field.getMapFieldNew())) {
+                numberPlaceForPC = pc.move(field.getMapFieldNew());
+            }
+            field.getMapFieldNew()[numberPlaceForPC - 1] = moveSymbolForPC;
+            field.printMapField(field.getMapFieldNew());
+
+            if (isWin(field.getMapFieldNew())) {
                 System.out.println("Выиграл PC!");
                 break;
             }
@@ -61,4 +74,26 @@ public class GameLogic {
             return true;
         }
     }
+
+    public static boolean isWin(char[] field) {
+        if (field[0] == field[1] && field[1] == field[2])
+            return true;
+        if (field[3] == field[4] && field[4] == field[5])
+            return true;
+        if (field[6] == field[7] && field[7] == field[8])
+            return true;
+        if (field[0] == field[3] && field[3] == field[6])
+            return true;
+        if (field[1] == field[4] && field[4] == field[7])
+            return true;
+        if (field[2] == field[5] && field[5] == field[8])
+            return true;
+        if (field[0] == field[4] && field[4] == field[8])
+            return true;
+        if (field[2] == field[4] && field[4] == field[6])
+            return true;
+
+        return false;
+    }
+
 }

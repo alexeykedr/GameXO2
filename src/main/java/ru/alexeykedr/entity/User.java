@@ -1,35 +1,41 @@
 package ru.alexeykedr.entity;
 
-import ru.alexeykedr.GameLogic;
-
 
 import java.util.Scanner;
 
 public class User extends Player {
-    GameLogic gameLogic;
     Scanner scanner = new Scanner(System.in);
 
-    public char moveSymbolUser;
+    public User() {
+        System.out.println("Выберите тип ваших полей X или 0? ");
+        this.symbol = scanner.nextLine().charAt(0);
+    }
 
-    private Integer placeOneField;
+    private char symbol;
+    private Integer placeOneFieldForUser;
+
+    public char getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(char symbol) {
+        this.symbol = symbol;
+    }
+
+    public Integer getPlaceOneFieldForUser() {
+        return placeOneFieldForUser;
+    }
+
+    public void setPlaceOneFieldForUser(Integer placeOneFieldForUser) {
+        this.placeOneFieldForUser = placeOneFieldForUser;
+    }
 
     public Integer move(char[] field) {
 
-        while (!gameLogic.isTypeFieldValid((moveSymbolUser))) {
-
-            System.out.println("Введите тип ваших полей: Х (икс большой) или 0 (буква о большая)?  ");
-            moveSymbolUser = scanner.nextLine().charAt(0);
-        }
         System.out.println("Введите цифру поля, куда хотите походить: ");
+        setPlaceOneFieldForUser(scanner.nextInt());
 
-        placeOneField = scanner.nextInt();
-        while (!gameLogic.isPlaceFieldValid(placeOneField, field)) {
-            placeOneField = scanner.nextInt();
-            System.out.println("Введите цифру поля, куда хотите походить от 1 до 9 включительно: ");
-
-        }
-
-        return placeOneField;
+        return getPlaceOneFieldForUser();
 
     }
 }

@@ -1,10 +1,15 @@
 package ru.alexeykedr.entity;
 
 public class Field {
-    public char[] mapFieldNew;
-    int size;
+    private final char[] mapFieldNew;
+    private final int size;
 
-    //    TODO: use constructor
+
+    public char[] getMapFieldNew() {
+        return mapFieldNew;
+    }
+
+
     public Field(int sizeMap) {
         this.size = sizeMap;
 
@@ -14,7 +19,6 @@ public class Field {
         }
 
     }
-
 
     public void printMapField(char[] mapFieldNew) {
         for (int i = 0; i < mapFieldNew.length; i += 3) {
